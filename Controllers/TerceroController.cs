@@ -34,7 +34,12 @@ namespace ParcialDotnet.Controllers
             Tercero tercero = new Tercero
             {
                 Identificacion = terceroInput.Identificacion,
+                TipoIdentificacion=terceroInput.TipoIdentificacion,
                 Nombre = terceroInput.Nombre,
+                TipoTercero=terceroInput.TipoTercero,
+                Direccion=terceroInput.Direccion,
+                Telefono=terceroInput.Telefono,
+                Pais=terceroInput.Pais,
                 Departamento = terceroInput.Departamento,
                 Ciudad = terceroInput.Ciudad,
                 pagos = terceroInput.Pagos

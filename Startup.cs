@@ -25,6 +25,7 @@ namespace ParcialDotnet
             var connectionString=Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ParcialContext>(p=>p.UseSqlServer(connectionString));
             services.AddControllersWithViews();
+            services.AddSwaggerGen();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -52,7 +53,14 @@ namespace ParcialDotnet
             {
                 app.UseSpaStaticFiles();
             }
+            app.UseSwagger();
 
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>

@@ -9,8 +9,8 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { PersonaConsultaComponent } from './Ayuda/persona-consulta/persona-consulta.component';
-import { PersonaRegistroComponent } from './Ayuda/persona-registro/persona-registro.component';
+import { TerceroConsultaComponent } from './Ayuda/tercero-consulta/tercero-consulta.component';
+import { TerceroRegistroComponent } from './Ayuda/tercero-registro/tercero-registro.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +19,8 @@ import { PersonaRegistroComponent } from './Ayuda/persona-registro/persona-regis
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    PersonaConsultaComponent,
-    PersonaRegistroComponent
+    TerceroConsultaComponent,
+    TerceroRegistroComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -30,8 +30,8 @@ import { PersonaRegistroComponent } from './Ayuda/persona-registro/persona-regis
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'personaConsulta', component: PersonaConsultaComponent },
-      { path: 'personaRegistro', component:PersonaRegistroComponent}
+      { path: 'terceroConsulta', component: TerceroConsultaComponent },
+      { path: 'terceroRegistro', component: TerceroRegistroComponent}
     ])
   ],
   providers: [],
