@@ -1,20 +1,20 @@
-import { ComponentFixture, TestBed } from 'src/app/Ayuda/tercero-consulta/node_modules/@angular/core/testing';
 
-import { PersonaConsultaComponent } from './persona-consulta.component';
+import { TerceroConsultaComponent } from './tercero-consulta.component';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 
 describe('PersonaConsultaComponent', () => {
-  let component: PersonaConsultaComponent;
-  let fixture: ComponentFixture<PersonaConsultaComponent>;
+  let component: TerceroConsultaComponent;
+  let fixture: ComponentFixture<TerceroConsultaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PersonaConsultaComponent ]
+      declarations: [ TerceroConsultaComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PersonaConsultaComponent);
+    fixture = TestBed.createComponent(TerceroConsultaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

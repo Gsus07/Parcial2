@@ -1,32 +1,33 @@
-import { Component, OnInit } from 'src/app/Ayuda/tercero-consulta/node_modules/@angular/core';
-import { PersonaService } from 'src/app/services/persona.service';
-import { Persona } from '../models/persona';
+
+import { TerceroService } from 'src/app/services/tercero.service';
+import { Tercero } from '../models/tercero';
+import { OnInit, Component } from '@angular/core';
 
 @Component({
-  selector: 'app-persona-consulta',
-  templateUrl: './persona-consulta.component.html',
-  styleUrls: ['./persona-consulta.component.css']
+  selector: 'app-tercero-consulta',
+  templateUrl: './tercero-consulta.component.html',
+  styleUrls: ['./tercero-consulta.component.css']
 })
-export class PersonaConsultaComponent implements OnInit {
-  personas: Persona[];
-  CantidadEntregada: number = 0;
-  constructor(private personaService: PersonaService) { }
+export class TerceroConsultaComponent implements OnInit {
+  terceros: Tercero[];
+  //CantidadEntregada: number = 0;
+  constructor(private terceroService: TerceroService) { }
   ngOnInit() {
   }
 
   get(): void {
-    this.personaService.get().subscribe(result => {
+    this.terceroService.get().subscribe(result => {
       if (result != null) {
-        this.personas = result;
-        this.ApoyoEntregado();
+        this.terceros = result;
+        //this.ApoyoEntregado();
       }
 
     });
   }
-  ApoyoEntregado() {
-    this.personaService.getSumaApoyo().subscribe(s => {
+  /*PagoEntregado() {
+    this.personaService.getSumaPago().subscribe(s => {
       this.CantidadEntregada = s;
     });
-  }
+  }*/
 
 }

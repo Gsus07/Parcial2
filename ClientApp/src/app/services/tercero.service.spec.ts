@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { TerceroService } from './tercero.service';
 
-describe('PersonaService', () => {
+describe('TerceroService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {

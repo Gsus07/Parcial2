@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Pago } from '../models/Pago';
 import { Tercero } from '../models/tercero';
+import { TerceroService } from '../../services/tercero.service';
 
 @Component({
-  selector: 'app-persona-registro',
-  templateUrl: './persona-registro.component.html',
-  styleUrls: [ './persona-registro.component.css' ]
+  selector: 'app-tercero-registro',
+  templateUrl: './tercero-registro.component.html',
+  styleUrls: [ './tercero-registro.component.css' ]
 })
-export class PersonaRegistroComponent implements OnInit {
+export class TerceroRegistroComponent implements OnInit {
   tercero: Tercero;
   Pago: Pago;
   CantidadDisponible: number = 0;
