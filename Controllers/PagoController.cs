@@ -10,22 +10,22 @@ namespace ParcialDotnet.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ApoyoController: ControllerBase
+    public class PagoController: ControllerBase
     {
-        private readonly PersonaService personaService;
-        public ApoyoController(ParcialContext context)
+        private readonly TerceroService terceroService;
+        public PagoController(ParcialContext context)
         {
-            personaService = new PersonaService(context);
+            terceroService = new TerceroService(context);
         }
 
-        [HttpGet]
+        /*[HttpGet]
         public ActionResult<decimal> Get()
         {
-             ApoyoResponse response = personaService.GetSumaApoyo();
+             PagoResponse response = personaService.GetSumaApoyo();
             if(response.Error) {
                 BadRequest(response.Message);
             }
             return Ok(response.SumaApoyo);
-        }
+        }*/
     }
 }

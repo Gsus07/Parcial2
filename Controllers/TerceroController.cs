@@ -9,20 +9,20 @@ namespace ParcialDotnet.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PersonaController : ControllerBase
+    public class TerceroController : ControllerBase
     {
-        private readonly PersonaService personaService;
-        public PersonaController(ParcialContext context)
+        private readonly TerceroService terceroService;
+        public TerceroController(ParcialContext context)
         {
-            personaService = new PersonaService(context);
+            terceroService = new TerceroService(context);
         }
 
         //POST: api/Persona
         [HttpPost]
         public ActionResult<PersonaViewModel> Post(PersonaInputModel personaInput)
         {
-            Tercero persona = Mapear(personaInput);
-            ServiceResponse response = personaService.Guardar(persona);
+            Tercero persona = Mapear(terceroInput);
+            ServiceResponse response = terceroService.Guardar(persona);
             if (response.Error)
             {
                 return BadRequest(response.Message);
