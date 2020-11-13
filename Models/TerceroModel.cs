@@ -1,16 +1,10 @@
 using Entidad;
 using System;
+using System.Collections.Generic;
 
 namespace presentacion.Models
 {
-    public class PagoModel
-    {
-        public int Id { get; set; }        
-        public string TipoPago { get; set; }
-        public DateTime Fecha { get; set; }
-        public decimal ValorPago { get; set; }
-        public decimal ValorIva { get; set; }
-    }
+    
     public class TerceroInputModel
     {
         public string Identificacion { get; set; }
@@ -22,7 +16,7 @@ namespace presentacion.Models
         public string Pais { get; set; }
         public string Departamento { get; set; }
         public string Ciudad { get; set; }
-        public PagoModel Pago { get; set; }
+        public List<Pago> Pagos { get; set; }
 
     }
 
@@ -33,6 +27,7 @@ namespace presentacion.Models
         public TerceroViewModel(Tercero tercero)
         {
             Identificacion = tercero.Identificacion;
+            TipoIdentificacion = tercero.TipoIdentificacion;
             Nombre = tercero.Nombre;
             TipoTercero = tercero.TipoTercero;
             Direccion = tercero.Direccion;
@@ -40,14 +35,7 @@ namespace presentacion.Models
             Pais = tercero.Pais;
             Departamento = tercero.Departamento;
             Ciudad = tercero.Ciudad;
-            Pago = new PagoModel
-            {
-                Id = tercero.pago.Id,
-                TipoPago = tercero.pago.Tipopago,
-                Fecha = tercero.pago.Fecha,
-                ValorPago = tercero.pago.ValorPago,
-                ValorIva = tercero.pago.ValorIva
-            };
+            Pagos = tercero.pagos;
         }
 
     }

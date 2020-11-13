@@ -10,5 +10,5 @@ export class Tercero {
   pais: string;
   departamento: string;
   ciudad: string;
-  pago: Pago;
+  pagos: Pago[];
 }

@@ -19,44 +19,37 @@ namespace ParcialDotnet.Controllers
 
         //POST: api/Persona
         [HttpPost]
-        public ActionResult<PersonaViewModel> Post(PersonaInputModel personaInput)
+        public ActionResult<TerceroViewModel> Post(TerceroInputModel terceroInput)
         {
-            Tercero persona = Mapear(terceroInput);
-            ServiceResponse response = terceroService.Guardar(persona);
+            Tercero Tercero = Mapear(terceroInput);
+            ServiceResponse response = terceroService.Guardar(Tercero);
             if (response.Error)
             {
                 return BadRequest(response.Message);
             }
-            return new PersonaViewModel(response.Persona);
+            return new TerceroViewModel(response.Tercero);
         }
-        private Tercero Mapear(PersonaInputModel personaInput)
+        private Tercero Mapear(TerceroInputModel terceroInput)
         {
-            Tercero persona = new Tercero
+            Tercero tercero = new Tercero
             {
-                Identificacion = personaInput.Identificacion,
-                Nombre = personaInput.Nombre,
-                Sexo = personaInput.Sexo,
-                Edad = personaInput.Edad,
-                Departamento = personaInput.Departamento,
-                Ciudad = personaInput.Ciudad,
-
-                Apoyo = new Pago
-                {
-                    ValorApoyo = personaInput.Apoyo.ValorApoyo,
-                    ModalidadApoyo = personaInput.Apoyo.ModalidadApoyo,
-                    Fecha = personaInput.Apoyo.Fecha
-                }
+                Identificacion = terceroInput.Identificacion,
+                Nombre = terceroInput.Nombre,
+                Departamento = terceroInput.Departamento,
+                Ciudad = terceroInput.Ciudad,
+                pagos = terceroInput.Pagos
+                
             };
 
-            return persona;
+            return tercero;
         }
 
         [HttpGet("{identificacion}")]
-        public ActionResult<PersonaViewModel> GetPersona(string identificacion)
+        public ActionResult<TerceroViewModel> GetPersona(string identificacion)
         {
-            ServiceResponse response = personaService.GetPersona(identificacion);
-            if (response.Persona == null) return NotFound("La persona no ha sido encontrada");
-            PersonaViewModel p = new PersonaViewModel(response.Persona);
+            ServiceResponse response = terceroService.GetPersona(identificacion);
+            if (response.Tercero == null) return NotFound("La persona no ha sido encontrada");
+            TerceroViewModel p = new TerceroViewModel(response.Tercero);
 
             return Ok(p);
         }
@@ -64,15 +57,15 @@ namespace ParcialDotnet.Controllers
         // GET: api/Persona
         [HttpGet]
 
-        public ActionResult<IEnumerable<PersonaViewModel>> Get()
+        public ActionResult<IEnumerable<TerceroViewModel>> Get()
         {
-            ConsultaResponse response = personaService.GetConsulta();
-            if (response.Personas == null)
+            ConsultaResponse response = terceroService.GetConsulta();
+            if (response.Terceros == null)
             {
                 BadRequest(response.Message);
             }
-            IEnumerable<PersonaViewModel> personas = response.Personas.Select(p => new PersonaViewModel(p));
-            return Ok(response.Personas);
+            IEnumerable<TerceroViewModel> personas = response.Terceros.Select(p => new TerceroViewModel(p));
+            return Ok(response.Terceros);
         }
     }
 }
