@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from 'src/app/Ayuda/tercero-consulta/node_modules/@angular/core';
 import { PersonaService } from 'src/app/services/persona.service';
 import { Persona } from '../models/persona';
 

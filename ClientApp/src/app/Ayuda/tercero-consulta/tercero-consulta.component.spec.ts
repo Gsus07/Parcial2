@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from 'src/app/Ayuda/tercero-consulta/node_modules/@angular/core/testing';
 
 import { PersonaConsultaComponent } from './persona-consulta.component';
 
