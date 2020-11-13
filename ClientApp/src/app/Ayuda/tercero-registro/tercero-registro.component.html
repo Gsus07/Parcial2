@@ -7,116 +7,115 @@
       <h2>Registro</h2>
                   
       <form>
-                                                         
-        <div class="form-group">
-                              <label>Identificacion</label>
-          <input
-            type="text"
-            name="identificacion"
-            [(ngModel)]="persona.identificacion"
-            class="form-control"
-          />
-                          
+
+        
+
+            <div class="modal-body ">
+              <form [formGroup]="formGroupPersona">
+                <div class="col">
+                  <p id="titulo" class="card-title"><strong>TIPO IDENTIFICACION</strong></p>
+                  <select class="form-control" name="tipoidentificacion" id="tipoidentificacion" [ngClass]="{'is-invalid':control.tipoidentificacion.errors && control.tipoidentificacion.touched}" formControlName="tipoidentificacion">
+                    <option>rc</option>
+                    <option>ti</option>
+                  </select>
+                  <div *ngIf="control.tipodocumeto.errors"  class="invalid-feedback">
+                    <div *ngIf="control.tipodocumeto.errors.required">
+                      Se requiere el tipo identificacion
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <p id="titulo" class="card-title"><strong>IDENTIFICACION</strong></p>
+                  <input type="text" class="form-control" name="Identificacion" placeholder="Identificacion" [ngClass]="{'is-invalid':control.identificacion.errors && control.identificacion.touched}" formControlName="identificacion">
+                  <div *ngIf="control.documento.errors"  class="invalid-feedback">
+                    <div *ngIf="control.documento.errors.required">
+                      Se requiere identificacion
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <p id="titulo" class="card-title"><strong>NOMBRE</strong></p>
+                  <input type="text" class="form-control" name="nombre" placeholder="Nombre" [ngClass]="{'is-invalid':control.nombre.errors && control.nombre.touched}" formControlName="nombre">
+                  <div *ngIf="control.nombre.errors"  class="invalid-feedback">
+                    <div *ngIf="control.nombre.errors.required">
+                      Se requiere Nombre
+                    </div>
+                  </div>
+                </div>
+
+                <div class="modal-body ">
+                  <form [formGroup]="formGroupPersona">
+                    <div class="col">
+                      <p id="titulo" class="card-title"><strong>TIPO TERCERO</strong></p>
+                      <select class="form-control" name="tipotercero" id="tipotercero" [ngClass]="{'is-invalid':control.tipodocumeto.errors && control.tipotercero.touched}" formControlName="tipotercero">
+                        <option>rc</option>
+                        <option>ti</option>
+                      </select>
+                      <div *ngIf="control.tipodocumeto.errors"  class="invalid-feedback">
+                        <div *ngIf="control.tipodocumeto.errors.required">
+                          Se requiere el tipo tercero      
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col">
+                      <p id="titulo" class="card-title"><strong>FECHA</strong></p>
+                      <input type="date" class="form-control" name="fechanac" [ngClass]="{'is-invalid':control.fechanac.errors && control.fechanac.touched}" formControlName="fechanac">
+                    </div>
+
+                    <div class="col">
+                      <p id="titulo" class="card-title"><strong>Direccion</strong></p>
+                      <input type="text" class="form-control" name="direccion" placeholder="Direccion" [ngClass]="{'is-invalid':control.direccion.errors && control.direccion.touched}" formControlName="direccion">
+                      <div *ngIf="control.direccion.errors"  class="invalid-feedback">
+                        <div *ngIf="control.direccion.errors.required">
+                          Se requiere direccion
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col">
+                      <p id="titulo" class="card-title"><strong>Telefono</strong></p>
+                      <input type="text" class="form-control" name="telefono" placeholder="Telefono" [ngClass]="{'is-invalid':control.telefono.errors && control.telefono.touched}" formControlName="telefono">
+                      <div *ngIf="control.telefono.errors"  class="invalid-feedback">
+                        <div *ngIf="control.telefono.errors.required">
+                          Se requiere telefono
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <div class="form-group">
+
+                    <div class="col">
+                      <p id="titulo" class="card-title"><strong>Departamento</strong></p>
+                      <input type="text" class="form-control" name="departamento" placeholder="Departamento" [ngClass]="{'is-invalid':control.departamento.errors && control.departamento.touched}" formControlName="departamento">
+                      <div *ngIf="control.departamento.errors"  class="invalid-feedback">
+                        <div *ngIf="control.departamento.errors.required">
+                          Se requiere el departamento
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col">
+                      <p id="titulo" class="card-title"><strong>Ciudad</strong></p>
+                      <input type="text" class="form-control" name="ciudad" placeholder="Ciudad" [ngClass]="{'is-invalid':control.ciudad.errors && control.ciudad.touched}" formControlName="ciudad">
+                      <div *ngIf="control.ciudad.errors"  class="invalid-feedback">
+                        <div *ngIf="control.ciudad.errors.required">
+                          Se requiere ciudad
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="text-center">
+                      <button class="btn btn-primary"
+                              type="submit"
+                              (click)="isRegistered()">
+                        Register
+                      </button>
+                      <button class="btn btn-secondary" type="reset">Cancel</button>
+                    </div>
+</form>
         </div>
-                      
-        <div class="form-group">
-          <label>Nombre</label>
-          <input
-            type="text"
-            name="nombre"
-            [(ngModel)]="persona.nombre"
-            class="form-control"
-          />
-                          
-        </div>
-        <!----div class="form-group">
-                                        <label>Apellido</label><input type="text"  name="apellido"  [(ngModel)]="persona.apellido" class="form-control"  />
-                                  </div-->
-                        
-        <div class="form-group">
-                              <label>sexo</label>
-          <input
-            type="text"
-            name="sexo"
-            [(ngModel)]="persona.sexo"
-            class="form-control"
-          />
-                          
-        </div>
-                        
-        <div class="form-group">
-                              <label>Edad</label
-          ><input
-            type="number"
-            name="edad"
-            [(ngModel)]="persona.edad"
-            class="form-control"
-          />
-                          
-        </div>
-        <div class="form-group">
-                              <label>Departamento</label
-          ><input
-            type="text"
-            name="departamento"
-            [(ngModel)]="persona.departamento"
-            class="form-control"
-          />
-                       
-        </div>
-        <div class="form-group">
-                              <label>Ciudad</label
-          ><input
-            type="text"
-            name="ciudad"
-            [(ngModel)]="persona.ciudad"
-            class="form-control"
-          />
-                   
-        </div>
-        <div class="form-group">
-                          <label>ValorApoyo</label
-          ><input
-            type="text"
-            name="valorApoyo"
-            [(ngModel)]="persona.apoyo.valorApoyo"
-            class="form-control"
-          />
-               
-        </div>
-        <div class="form-group">
-                        <label>Modalidad</label
-          ><input
-            type="text"
-            name="modalidad"
-            [(ngModel)]="persona.apoyo.modalidadApoyo"
-            class="form-control"
-          />
-        </div>
-        <div class="form-group">
-                     <label>Fecha</label>           
-          <input
-            type="date"
-            name="fecha"
-            min="2020-10-10"
-            max="2027-12-30"
-            [(ngModel)]="persona.apoyo.fecha"
-            class="form-control"
-          />
-           
-        </div>
-                       
-        <div class="text-center">
-          <button
-            class="btn btn-primary"
-            type="submit"
-            (click)="isRegistered()"
-          >
-            Register
-          </button>
-          <button class="btn btn-secondary" type="reset">Cancel</button>
-        </div>
-      </form>
-    </div>
   </div>
 </div>

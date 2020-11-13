@@ -42,7 +42,7 @@ namespace ParcialDotnet.Controllers
                 Pais=terceroInput.Pais,
                 Departamento = terceroInput.Departamento,
                 Ciudad = terceroInput.Ciudad,
-                pagos = terceroInput.Pagos
+                Pagos = terceroInput.Pagos
                 
             };
 
@@ -50,9 +50,9 @@ namespace ParcialDotnet.Controllers
         }
 
         [HttpGet("{identificacion}")]
-        public ActionResult<TerceroViewModel> GetPersona(string identificacion)
+        public ActionResult<TerceroViewModel> GetTercero(string identificacion)
         {
-            ServiceResponse response = terceroService.GetPersona(identificacion);
+            ServiceResponse response = terceroService.GetTercero(identificacion);
             if (response.Tercero == null) return NotFound("La persona no ha sido encontrada");
             TerceroViewModel p = new TerceroViewModel(response.Tercero);
 
@@ -69,7 +69,7 @@ namespace ParcialDotnet.Controllers
             {
                 BadRequest(response.Message);
             }
-            IEnumerable<TerceroViewModel> personas = response.Terceros.Select(p => new TerceroViewModel(p));
+            IEnumerable<TerceroViewModel> terceros = response.Terceros.Select(p => new TerceroViewModel(p));
             return Ok(response.Terceros);
         }
     }

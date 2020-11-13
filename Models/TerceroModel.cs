@@ -35,7 +35,7 @@ namespace presentacion.Models
             Pais = tercero.Pais;
             Departamento = tercero.Departamento;
             Ciudad = tercero.Ciudad;
-            Pagos = tercero.pagos;
+            Pagos = tercero.Pagos;
         }
 
     }
